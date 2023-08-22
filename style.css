@@ -1,0 +1,144 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: rgb(242, 150, 150); */
+    background-color: rgb(108, 107, 107);
+    /* background-color: rgb(170, 244, 232); */
+}
+
+.clock {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    background:url(neeraj.jpg) ;
+    background-size: cover;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+  inset 5px 5px 20px rgba(255,255,255,0.2),
+  inset 5px 5px 20px rgba(0,0,0,0.75);
+    
+}
+
+.number{
+    transform: rotate(calc(30deg * var(--n)));
+    position: absolute;
+    text-align: center;
+    inset: 20px;
+    font-size: 40px;
+    font-style: oblique;
+}
+
+.number b {
+    transform: rotate(calc(-30deg * var(--n)));
+    display: inline-block;
+    color: whitesmoke;
+}
+
+.center-dot{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.hour-hand, .minute-hand , .second-hand {
+    --rotate: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+    transform-origin: bottom;
+}
+
+.hour-hand {
+    width: 12px;
+    height: 130px;
+    background-color: black;
+}
+
+.minute-hand{
+    width: 12px;
+    height: 190px;
+    background-color: blue;
+
+}
+
+.second-hand{
+   width: 6px;
+   height: 210px;
+   background-color: red;
+}
+
+/* digital clock style */
+
+#time
+{
+ margin-top: 630px;
+ display: flex;
+ padding: 10px 20px;
+ font-size: 2em;
+ font-weight: 600;
+ border: 2px solid  rgba(0,0,0,0.5);
+ border-radius: 40px;
+ box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+  inset 5px 5px 20px rgba(255,255,255,0.2),
+  inset 5px 5px 20px rgba(0,0,0,0.75);
+  background-color: rgb(137, 130, 130);
+
+}
+
+#time div{
+    position: relative;
+    width: 60px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr);
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after
+{
+ content: ':';
+ position: absolute;
+ right: -4px;
+ top: -3px;
+}
+
+#time div:last-child
+{
+ font-size: 0.5em;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: rgba(56, 24, 237, 0.835);
+}
+
+#time div:nth-child(2)::after
+{
+    animation: animate 1s steps(1) infinite;
+}
+
+@keyframes animate 
+{
+    0%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+}
